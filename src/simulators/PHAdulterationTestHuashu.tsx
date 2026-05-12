@@ -72,7 +72,7 @@ const PHAdulterationTestHuashu: React.FC = () => {
     <div className="w-full h-full flex flex-col font-serif bg-[#F9F9F7] text-neutral-900 relative" style={{ fontFamily: '"Newsreader", serif' }}>
       
       {/* Editorial Header */}
-      <div className="px-10 py-6 border-b border-black/10 flex justify-between items-center bg-white shadow-sm z-50">
+      <div className="px-10 py-6 border-b border-black/10 flex flex-col md:flex-row items-start md:items-center gap-4 justify-between bg-white shadow-sm z-50">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">Prueba 01: Extracción Líquido-Líquido y Haloformo</h2>
           <p className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1">Detección de Adulterantes y pH</p>
@@ -89,10 +89,10 @@ const PHAdulterationTestHuashu: React.FC = () => {
       </div>
 
       {/* Main Interactive Area with Constraints */}
-      <div ref={constraintsRef} className="flex-grow relative flex p-6 gap-6 overflow-hidden">
+      <div ref={constraintsRef} className="flex-grow relative flex flex-col lg:flex-row p-6 gap-6 overflow-y-auto lg:overflow-hidden">
         
         {/* Left Inventory Shelf */}
-        <div className="w-56 bg-white/50 backdrop-blur-sm border border-black/5 rounded-2xl shadow-inner p-6 flex flex-col gap-6 items-center z-20">
+        <div className="w-full lg:w-56 bg-white/50 backdrop-blur-sm border border-black/5 rounded-2xl shadow-inner p-6 flex flex-row lg:flex-col flex-wrap lg:flex-nowrap gap-6 items-center justify-center z-20">
            <h3 className="text-[10px] font-sans font-bold uppercase tracking-widest text-neutral-400 w-full text-center border-b border-black/10 pb-2 mb-2">Reactivos y Materiales</h3>
            
            {/* Draggable Tube */}
@@ -132,7 +132,7 @@ const PHAdulterationTestHuashu: React.FC = () => {
         </div>
 
         {/* Central Work Bench */}
-        <div className="flex-grow relative bg-white border border-black/5 rounded-[2rem] shadow-sm flex flex-col items-center justify-center overflow-hidden">
+        <div className="flex-grow relative bg-white border border-black/5 rounded-[2rem] shadow-sm flex flex-col items-center justify-center overflow-hidden min-h-[400px] lg:min-h-0">
            {/* Subtle Grid Background */}
            <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
@@ -203,7 +203,7 @@ const PHAdulterationTestHuashu: React.FC = () => {
                    if (step === 4 && cylinderLiquidType === 'water') setWaterInTube(10);
                 }
              }}
-             className={`absolute top-20 right-40 z-50 cursor-grab active:cursor-grabbing p-2 rounded-xl transition-all ${[1, 2, 3, 4].includes(step) ? 'bg-white shadow-xl ring-2 ring-orange-500 ring-offset-4' : ''}`}
+             className={`absolute top-2 lg:top-20 right-2 lg:right-40 z-50 cursor-grab active:cursor-grabbing p-2 rounded-xl transition-all ${[1, 2, 3, 4].includes(step) ? 'bg-white shadow-xl ring-2 ring-orange-500 ring-offset-4' : ''}`}
            >
               <div className="w-10 h-40 border-x-2 border-b-2 border-black/10 rounded-b-lg bg-white/20 backdrop-blur-md relative shadow-xl mx-auto">
                  <div className="absolute inset-0 flex flex-col justify-between py-2 px-1 opacity-20">
@@ -220,7 +220,7 @@ const PHAdulterationTestHuashu: React.FC = () => {
         </div>
 
         {/* Right Tools Shelf (Titration & Chemistry) */}
-        <div className="w-56 bg-white/50 backdrop-blur-sm border border-black/5 rounded-2xl shadow-inner p-6 flex flex-col gap-6 items-center z-20">
+        <div className="w-full lg:w-56 bg-white/50 backdrop-blur-sm border border-black/5 rounded-2xl shadow-inner p-6 flex flex-row lg:flex-col flex-wrap lg:flex-nowrap gap-6 items-center justify-center z-20">
            <h3 className="text-[10px] font-sans font-bold uppercase tracking-widest text-neutral-400 w-full text-center border-b border-black/10 pb-2 mb-2">Herramientas Químicas</h3>
            
            {/* Caustic Soda Dropper */}
@@ -274,7 +274,7 @@ const PHAdulterationTestHuashu: React.FC = () => {
                    {gasolineQuality === 'premium' ? <CheckCircle2 className="w-16 h-16 text-green-600" /> : <ShieldAlert className="w-16 h-16 text-red-600" />}
                 </div>
                 
-                <div className="grid grid-cols-3 gap-6 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                    <div className="bg-neutral-50 p-6 border border-neutral-200">
                       <p className="text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2">Emulsión</p>
                       <p className="text-lg font-medium">{gasolineQuality === 'premium' ? 'Negativa (Límpida)' : 'Positiva (Turbia)'}</p>
